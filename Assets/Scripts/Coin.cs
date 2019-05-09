@@ -23,7 +23,16 @@ public class Coin : MonoBehaviour {
         Coin.coinsCount--;
         if (Coin.coinsCount <= 0)
         {
-            Debug.Log("El juego ha terminado");
+
+            Debug.Log("Monedin");
+            GameObject timer = GameObject.Find("GamerTime");
+            Destroy(timer);
+
+            GameObject[] fireworks = GameObject.FindGameObjectsWithTag("Fireworks");
+            foreach(GameObject firework in fireworks)
+            {
+                firework.GetComponent<ParticleSystem>().Play();
+            }
         }
     }
 
